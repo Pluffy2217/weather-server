@@ -54,8 +54,8 @@ app.get('/api/location', async (req, res) => {
     res.json({options})
 })
 
-app.listen(process.env.port, () => {
-  console.log(`Server is running on port ${process.env.port}`);
+app.listen(process.env.PORT || 3001, () => {
+  console.log(`Server is running on port ${process.env.PORT || 3001}`);
 });
 
 

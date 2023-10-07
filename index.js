@@ -20,15 +20,16 @@ app.get('/api/data', async (req, res) => {
 
     const lat = req.query.lat
     const lon = req.query.lon
+    const unit = req.query.unit
 
     const currentWeatherFetch = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.WEATHER_API_KEY}&units=metric`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.WEATHER_API_KEY}&units=${unit}`
       );
 
     const currentWeatherJSON = await currentWeatherFetch.json()
 
     const forecastFetch = await fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${process.env.WEATHER_API_KEY}&units=metric`
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${process.env.WEATHER_API_KEY}&units=${unit}`
       );
 
     const forecastJSON = await forecastFetch.json()
